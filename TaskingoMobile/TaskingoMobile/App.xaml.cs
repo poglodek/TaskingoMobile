@@ -12,9 +12,10 @@ namespace TaskingoMobile
         public App()
         {
             InitializeComponent();
-
+            Routing.RegisterRoute(nameof(AppShell), typeof(AppShell));
             DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
+
         }
 
         protected override void OnStart()
