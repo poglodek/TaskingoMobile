@@ -1,0 +1,10 @@
+﻿namespace TaskingoMobile.Exceptions
+{
+    public class ApiServerErrorException : ApiBaseException
+    {
+        public ApiServerErrorException(string message) : base(message)
+        {
+
+        }
+    }
+}

@@ -7,6 +7,47 @@
              mc:Ignorable="d"
              x:Class="TaskingoMobile.Views.LoginPage"
              Shell.NavBarIsVisible="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LabelWindow"  TargetType="{x:Type Label}">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="17" />
+            </Style>
+            <Style x:Key="BackgroundGradient" TargetType="{x:Type Grid}">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#1c064f" Offset="0"/>
+                            <GradientStop Color="#0041b3" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+
+                </Setter>
+            </Style>
+            <Style x:Key="Entry" TargetType="Entry">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="PlaceholderColor" Value="White" />
+            </Style>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+            </Style>
+
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
     <ContentPage.Content>
         <Grid Style="{StaticResource Key=BackgroundGradient}">
             <Grid.RowDefinitions>
@@ -18,12 +59,11 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Label Text="Welcome to Taskingo" Style="{StaticResource Key=LabelWindow}"/>
+            <Label Text="Welcome to Taskingo" Style="{StaticResource Key=LabelWindow}" FontSize="40"/>
             <Entry Style="{StaticResource Key=Entry}" Grid.Row="1" Placeholder="Email" />
             <Entry  Style="{StaticResource Key=Entry}" Grid.Row="2" Placeholder="Password" IsPassword="True" />
             <Entry  Style="{StaticResource Key=Entry}" Grid.Row="3" Placeholder="IP Address" />
             <Button  Grid.Row="4" VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
         </Grid>
-        
     </ContentPage.Content>
 </ContentPage>
