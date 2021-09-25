@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TaskingoMobile.Models;
+using TaskingoMobile.Services.IServices;
 
-namespace TaskingoMobile.Services
+namespace TaskingoMobile.Services.Services
 {
     public class MockDataStore : IDataStore<Item>
     {

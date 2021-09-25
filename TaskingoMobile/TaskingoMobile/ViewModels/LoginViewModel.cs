@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Input;
-using TaskingoMobile.Api;
+﻿using TaskingoMobile.Services.IServices;
+using TaskingoMobile.Services.Services;
 using TaskingoMobile.Views;
 using Xamarin.Forms;
 
@@ -10,8 +7,10 @@ namespace TaskingoMobile.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
+        private ILoginServices _loginServices => DependencyService.Get<LoginServices>();
         public Command LoginCommand { get; }
-        public string Ip { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
 
         public LoginViewModel()
         {
@@ -20,16 +19,9 @@ namespace TaskingoMobile.ViewModels
 
         private async void OnLoginClicked(object obj)
         {
-            try
-            {
-                var response = await BaseCall.MakeCall("user/login", System.Net.Http.HttpMethod.Post, null);
-                Console.WriteLine(response);
+            var response = await _loginServices.Login(Email, Password);
+            if(response)
                 await Shell.Current.GoToAsync($"///{nameof(AboutPage)}");
-            }
-            catch(Exception ex)
-            {
-                 Console.WriteLine(ex);
-            }
 
         }
     }

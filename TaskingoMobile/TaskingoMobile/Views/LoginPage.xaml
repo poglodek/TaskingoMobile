@@ -57,12 +57,10 @@
                 <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
-                <RowDefinition />
             </Grid.RowDefinitions>
             <Label Text="Welcome to Taskingo" Style="{StaticResource Key=LabelWindow}" FontSize="40"/>
-            <Entry Style="{StaticResource Key=Entry}" Grid.Row="1" Placeholder="Email" />
-            <Entry  Style="{StaticResource Key=Entry}" Grid.Row="2" Placeholder="Password" IsPassword="True" />
-            <Entry  Style="{StaticResource Key=Entry}" Grid.Row="3" Placeholder="IP Address" />
+            <Entry Text="{Binding Path=Email}" Style="{StaticResource Key=Entry}" Grid.Row="1" Placeholder="Email" />
+            <Entry  Text="{Binding Path=Password}" Style="{StaticResource Key=Entry}" Grid.Row="2" Placeholder="Password" IsPassword="True" />
             <Button  Grid.Row="4" VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
         </Grid>
     </ContentPage.Content>

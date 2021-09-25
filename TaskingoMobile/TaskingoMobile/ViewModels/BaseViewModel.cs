@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using TaskingoMobile.Models;
 using TaskingoMobile.Services;
+using TaskingoMobile.Services.IServices;
 using Xamarin.Forms;
 
 namespace TaskingoMobile.ViewModels

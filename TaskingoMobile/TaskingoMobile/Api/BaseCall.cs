@@ -16,11 +16,19 @@ namespace TaskingoMobile.Api
 
         public static async Task<string> MakeCall(string endpoint, HttpMethod httpMethod, object body)
         {
-            if (_activeCalls > MaxCallsInThisSameTime)
-                throw new ToManyCallsException($"To many Calls. Active Calls -> {_activeCalls}");
-            _activeCalls++;
-            var response = await CallApi(endpoint, httpMethod, body);
-            return await CheckResponse(response);
+            try
+            {
+                if (_activeCalls > MaxCallsInThisSameTime)
+                    throw new ToManyCallsException($"To many Calls. Active Calls -> {_activeCalls}");
+                _activeCalls++;
+                var response = await CallApi(endpoint, httpMethod, body);
+                return await CheckResponse(response);
+            }
+            catch
+            {
+                return "";
+                // ignored
+            }
         }
 
         private static async Task<HttpResponseMessage> CallApi(string endpoint, HttpMethod httpMethod, object body)
