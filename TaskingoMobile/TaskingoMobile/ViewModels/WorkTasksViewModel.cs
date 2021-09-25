@@ -15,7 +15,6 @@ namespace TaskingoMobile.ViewModels
 
         public ObservableCollection<WorkTaskModel> WorkTasks { get; }
         public Command LoadItemsCommand { get; }
-        public Command AddItemCommand { get; }
         public Command<WorkTaskModel> ItemTapped { get; }
 
         public WorkTasksViewModel()
@@ -25,11 +24,9 @@ namespace TaskingoMobile.ViewModels
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
             ItemTapped = new Command<WorkTaskModel>(OnItemSelected);
-
-            AddItemCommand = new Command(OnAddItem);
         }
 
-        async Task ExecuteLoadItemsCommand()
+        private async Task ExecuteLoadItemsCommand()
         {
             IsBusy = true;
 
@@ -68,10 +65,6 @@ namespace TaskingoMobile.ViewModels
             }
         }
 
-        private async void OnAddItem(object obj)
-        {
-            await Shell.Current.GoToAsync(nameof(NewItemPage));
-        }
 
         async void OnItemSelected(WorkTaskModel item)
         {

@@ -13,6 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\ChatPage.xaml.cs">
+      <DependentUpon>ChatPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\WorkTimePage.xaml.cs">
       <DependentUpon>WorkTimePage.xaml</DependentUpon>
     </Compile>
@@ -22,5 +25,11 @@
     <Compile Update="Views\WorkTasksPage.xaml.cs">
       <DependentUpon>WorkTasksPage.xaml</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\UserListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

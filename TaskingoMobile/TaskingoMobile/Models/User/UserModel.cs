@@ -16,10 +16,7 @@ namespace TaskingoMobile.Models.User
         public bool IsOnline { get; set; }
         public int Phone { get; set; }
         public string Address { get; set; }
-        public override string ToString()
-        {
-            return $"{FirstName} {LastName}";
-        }
+        public string FullName => $"{FirstName} {LastName}";
     }
-    
+
 }
