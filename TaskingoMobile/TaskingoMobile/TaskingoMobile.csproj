@@ -13,6 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\WorkTimePage.xaml.cs">
+      <DependentUpon>WorkTimePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\WorkTaskPage.xaml.cs">
       <DependentUpon>WorkTaskPage.xaml</DependentUpon>
     </Compile>

@@ -8,6 +8,6 @@ namespace TaskingoMobile.Services.IServices
     {
         Task<List<WorkTaskModel>> GetMyTasks();
         Task<WorkTaskModel> GetTaskById(int taskId);
-        Task CompeteTask(CompleteTaskModel completeModel);
+        Task<bool> CompeteTask(CompleteTaskModel completeModel);
     }
 }

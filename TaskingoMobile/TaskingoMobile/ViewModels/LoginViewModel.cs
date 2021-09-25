@@ -21,7 +21,7 @@ namespace TaskingoMobile.ViewModels
         {
             var response = await _loginServices.Login(Email, Password);
             if(response)
-                await Shell.Current.GoToAsync($"///{nameof(AboutPage)}");
+                await Shell.Current.GoToAsync($"///{nameof(WorkTimePage)}");
 
         }
     }

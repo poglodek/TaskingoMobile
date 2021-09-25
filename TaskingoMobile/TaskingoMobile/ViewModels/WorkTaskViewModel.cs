@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using TaskingoMobile.Models;
 using TaskingoMobile.Models.User;
 using TaskingoMobile.Models.WorkTask;
+using TaskingoMobile.Views;
 using Xamarin.Forms;
 
 namespace TaskingoMobile.ViewModels
@@ -144,7 +145,9 @@ namespace TaskingoMobile.ViewModels
                 Id = Id,
                 Comment = NewComment
             };
-            await WorkTaskServices.CompeteTask(completeModel);
+            var completed = await WorkTaskServices.CompeteTask(completeModel);
+            if(completed)
+                await Shell.Current.GoToAsync($"///{nameof(WorkTimePage)}");
         }
     }
 }

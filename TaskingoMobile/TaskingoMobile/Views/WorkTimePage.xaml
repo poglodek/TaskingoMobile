@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TaskingoMobile.Views.WorkTimePage"
+             xmlns:conv="clr-namespace:TaskingoMobile.Converter"
+             xmlns:vm="clr-namespace:TaskingoMobile.ViewModels"
+             Title="{Binding Title}">
+    
+    <ContentPage.BindingContext>
+        <vm:WorkTimeViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <conv:ColorConverter x:Key="ColorConverter" />
+        <conv:TextConverter x:Key="TextConverter" />
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Row="0" Margin="0,30,0,0">
+            <Button  Text="{Binding Path=IsWorking, Converter={StaticResource TextConverter}}" Background="{Binding Path=IsWorking, Converter={StaticResource ColorConverter} }" Command="{Binding Path=ChangeWork}" />
+        </StackLayout>
+        <StackLayout Grid.Row="1">
+            <Label TextColor="Black" Text="Work Time start:" FontSize="32" />
+            <Label TextColor="Black" Text="{Binding Path=StartDate} " FontSize="32" />
+        </StackLayout>
+
+
+        
+        
+        
+    </Grid>
+
+</ContentPage>

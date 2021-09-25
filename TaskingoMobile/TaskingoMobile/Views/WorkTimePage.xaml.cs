@@ -5,9 +5,9 @@ using Xamarin.Forms.Xaml;
 
 namespace TaskingoMobile.Views
 {
-    public partial class AboutPage : ContentPage
+    public partial class WorkTimePage : ContentPage
     {
-        public AboutPage()
+        public WorkTimePage()
         {
             InitializeComponent();
         }

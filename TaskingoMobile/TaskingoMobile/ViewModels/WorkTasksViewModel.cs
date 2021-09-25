@@ -77,8 +77,6 @@ namespace TaskingoMobile.ViewModels
         {
             if (item == null)
                 return;
-
-            // This will push the ItemDetailPage onto the navigation stack
             await Shell.Current.GoToAsync($"{nameof(WorkTaskPage)}?{nameof(WorkTaskViewModel.TaskId)}={item.Id}");
         }
     }

@@ -15,6 +15,7 @@ namespace TaskingoMobile
             InitializeComponent();
             Routing.RegisterRoute(nameof(AppShell), typeof(AppShell));
             DependencyService.Register<LoginServices>();
+            DependencyService.Register<WorkTimeServices>();
             DependencyService.Register<WorkTaskServices>();
             MainPage = new AppShell();
 

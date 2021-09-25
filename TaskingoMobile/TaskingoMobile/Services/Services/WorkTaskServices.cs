@@ -27,10 +27,10 @@ namespace TaskingoMobile.Services.Services
             return task;
         }
 
-        public async Task CompeteTask(CompleteTaskModel completeModel)
+        public async Task<bool> CompeteTask(CompleteTaskModel completeModel)
         {
             await BaseCall.MakeCall($"WorkTask/Complete", HttpMethod.Post, completeModel);
-            //return true i zmiana widoku 
+            return true;// i zmiana widoku 
         }
     }
 }

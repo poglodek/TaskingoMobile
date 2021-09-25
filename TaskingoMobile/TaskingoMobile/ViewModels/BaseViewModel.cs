@@ -13,6 +13,7 @@ namespace TaskingoMobile.ViewModels
     public class BaseViewModel : INotifyPropertyChanged
     {
         public IWorkTaskServices WorkTaskServices => DependencyService.Get<WorkTaskServices>();
+        public IWorkTimeServices WorkTimeServices => DependencyService.Get<WorkTimeServices>();
 
         bool isBusy = false;
         public bool IsBusy
