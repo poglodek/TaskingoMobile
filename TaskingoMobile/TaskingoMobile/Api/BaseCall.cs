@@ -4,7 +4,6 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using TaskingoMobile.Exceptions;
-using TaskingoMobile.Popup;
 using Xamarin.CommunityToolkit.Extensions;
 
 namespace TaskingoMobile.Api
@@ -28,9 +27,7 @@ namespace TaskingoMobile.Api
             }
             catch(Exception ex)
             {
-                var popup2 = new PopupPage();
-                popup2.SetContentText(ex.Message);
-                new PopupPage().ShowPopup(popup2);
+                await App.Current.MainPage.DisplayAlert("Alert!", ex.Message, "OK");
                 return "";
             }
         }
@@ -59,7 +56,7 @@ namespace TaskingoMobile.Api
             if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized) throw new UnauthorizedException("UnauthorizedException. If you should have access, please contact with admin ");
             if (response.StatusCode == System.Net.HttpStatusCode.Forbidden) throw new ForbiddenException("Forbidden. If you should have access, please contact with admin ");
             if (response.StatusCode == System.Net.HttpStatusCode.BadRequest ||
-                ((int)response.StatusCode) >= 500) throw new ApiServerErrorException("Server InfoPopupView. Please contact with admin.");
+                ((int)response.StatusCode) >= 500) throw new ApiServerErrorException("Bad Request. Please contact with admin.");
             if (response.StatusCode == System.Net.HttpStatusCode.Conflict) throw new ConflictException("ConflictException with data. Please contact with admin.");
             throw new OtherResponseException(response.ReasonPhrase);
         }

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -13,20 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Popup\PopupPage.xaml.cs">
-      <DependentUpon>PopupPage.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Views\WorkTaskPage.xaml.cs">
       <DependentUpon>WorkTaskPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\WorkTasksPage.xaml.cs">
       <DependentUpon>WorkTasksPage.xaml</DependentUpon>
     </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Popup\PopupPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
   </ItemGroup>
 </Project>

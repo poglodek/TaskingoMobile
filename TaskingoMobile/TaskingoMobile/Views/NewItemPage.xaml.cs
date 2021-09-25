@@ -10,7 +10,7 @@ namespace TaskingoMobile.Views
 {
     public partial class NewItemPage : ContentPage
     {
-        public Item Item { get; set; }
+        //public Item Item { get; set; }
 
         public NewItemPage()
         {

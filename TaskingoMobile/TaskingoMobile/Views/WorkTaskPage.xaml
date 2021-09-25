@@ -28,6 +28,11 @@
             <Label Text="{Binding IsAssigned }" FontSize="Small"/>
             <Label Text="Assigned User:" FontSize="Medium" />
             <Label Text="{Binding AssignedUser  }" FontSize="Small"/>
+            <Entry Opacity="0" />
+            <Label Text="Complete task" FontAttributes="Bold" />
+            <Entry Placeholder="New comment"  Text="{Binding Path=NewComment}"/>
+            <Button Text="Complete this task!" Command="{Binding Path=Complete}" />
         </StackLayout>
+
     </ScrollView>
 </ContentPage>

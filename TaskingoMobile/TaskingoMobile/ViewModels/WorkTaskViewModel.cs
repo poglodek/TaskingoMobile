@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using TaskingoMobile.Models;
 using TaskingoMobile.Models.User;
+using TaskingoMobile.Models.WorkTask;
 using Xamarin.Forms;
 
 namespace TaskingoMobile.ViewModels
@@ -22,8 +23,20 @@ namespace TaskingoMobile.ViewModels
         private UserModel whoCreated;
         private bool isAssigned;
         private UserModel assignedUser;
-
         public int Id { get; set; }
+
+        public string NewComment{ get; set; }
+
+        public Command Complete
+        {
+            get;
+            set;
+        }
+
+        public WorkTaskViewModel()
+        {
+            Complete = new Command(CompleteTask);
+        }
 
         public int Priority
         {
@@ -119,6 +132,19 @@ namespace TaskingoMobile.ViewModels
             {
                 Debug.WriteLine("Failed to Load Item");
             }
+        }
+
+        public async void CompleteTask(object obj)
+        {
+            var result = await App.Current.MainPage.DisplayAlert("Complete task", "Do you want to complete this task?",
+                "Ok", "Cancel");
+            if (!result) return;
+            var completeModel = new CompleteTaskModel
+            {
+                Id = Id,
+                Comment = NewComment
+            };
+            await WorkTaskServices.CompeteTask(completeModel);
         }
     }
 }

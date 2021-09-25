@@ -26,5 +26,11 @@ namespace TaskingoMobile.Services.Services
             var task = JsonConvert.DeserializeObject<WorkTaskModel>(taskJson);
             return task;
         }
+
+        public async Task CompeteTask(CompleteTaskModel completeModel)
+        {
+            await BaseCall.MakeCall($"WorkTask/Complete", HttpMethod.Post, completeModel);
+            //return true i zmiana widoku 
+        }
     }
 }
