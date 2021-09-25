@@ -4,6 +4,8 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using TaskingoMobile.Exceptions;
+using TaskingoMobile.Popup;
+using Xamarin.CommunityToolkit.Extensions;
 
 namespace TaskingoMobile.Api
 {
@@ -24,11 +26,12 @@ namespace TaskingoMobile.Api
                 var response = await CallApi(endpoint, httpMethod, body);
                 return await CheckResponse(response);
             }
-            catch
+            catch(Exception ex)
             {
-                //await DisplayAlert("Alert", "You have been alerted", "OK");
+                var popup2 = new PopupPage();
+                popup2.SetContentText(ex.Message);
+                new PopupPage().ShowPopup(popup2);
                 return "";
-                // ignored
             }
         }
 

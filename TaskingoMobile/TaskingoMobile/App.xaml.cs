@@ -23,6 +23,7 @@ namespace TaskingoMobile
 
         protected override void OnStart()
         {
+            
         }
 
         protected override void OnSleep()
