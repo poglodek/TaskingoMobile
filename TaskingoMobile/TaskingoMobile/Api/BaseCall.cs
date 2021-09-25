@@ -26,6 +26,7 @@ namespace TaskingoMobile.Api
             }
             catch
             {
+                //await DisplayAlert("Alert", "You have been alerted", "OK");
                 return "";
                 // ignored
             }

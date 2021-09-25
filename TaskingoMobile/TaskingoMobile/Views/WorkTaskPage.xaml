@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TaskingoMobile.Views.WorkTaskPage"
+             Title="{Binding Title}">
+    <ScrollView>
+        <StackLayout Spacing="20" Padding="15">
+
+            <Label Text="Id:" FontSize="Medium" />
+            <Label Text="{Binding Id}" FontSize="Small"/>
+            <Label Text="Priority:" FontSize="Medium" />
+            <Label Text="{Binding Priority }" FontSize="Small"/>
+            <Label Text="Description:" FontSize="Medium" />
+            <Label Text="{Binding Description}" FontSize="Small"/>
+            <Label Text="Status:" FontSize="Medium" />
+            <Label Text="{Binding Status}" FontSize="Small"/>
+            <Label Text="Comment:" FontSize="Medium" />
+            <Label Text="{Binding Comment }" FontSize="Small"/>
+            <Label Text="WorkGroup:" FontSize="Medium" />
+            <Label Text="{Binding WorkGroup }" FontSize="Small"/>
+            <Label Text="Created Time:" FontSize="Medium" />
+            <Label Text="{Binding CreatedTime }" FontSize="Small"/>
+            <Label Text="DeadLine:" FontSize="Medium" />
+            <Label Text="{Binding DeadLine }" FontSize="Small"/>
+            <Label Text="Who Created:" FontSize="Medium" />
+            <Label Text="{Binding WhoCreated }" FontSize="Small"/>
+            <Label Text="Is Assigned:" FontSize="Medium" />
+            <Label Text="{Binding IsAssigned }" FontSize="Small"/>
+            <Label Text="Assigned User:" FontSize="Medium" />
+            <Label Text="{Binding AssignedUser  }" FontSize="Small"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

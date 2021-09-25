@@ -12,8 +12,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\WorkTasks.xaml.cs">
-      <DependentUpon>WorkTasks.xaml</DependentUpon>
+    <Compile Update="Views\WorkTaskPage.xaml.cs">
+      <DependentUpon>WorkTaskPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\WorkTasksPage.xaml.cs">
+      <DependentUpon>WorkTasksPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

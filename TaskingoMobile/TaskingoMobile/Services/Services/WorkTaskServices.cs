@@ -19,5 +19,12 @@ namespace TaskingoMobile.Services.Services
             var tasks = JsonConvert.DeserializeObject<List<WorkTaskModel>>(tasksJson);
             return tasks;
         }
+
+        public async Task<WorkTaskModel> GetTaskById(int taskId)
+        {
+            var taskJson = await BaseCall.MakeCall($"WorkTask/{taskId}", HttpMethod.Get, null);
+            var task = JsonConvert.DeserializeObject<WorkTaskModel>(taskJson);
+            return task;
+        }
     }
 }

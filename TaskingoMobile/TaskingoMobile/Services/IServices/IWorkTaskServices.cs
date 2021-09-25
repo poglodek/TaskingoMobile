@@ -7,5 +7,6 @@ namespace TaskingoMobile.Services.IServices
     public interface IWorkTaskServices
     {
         Task<List<WorkTaskModel>> GetMyTasks();
+        Task<WorkTaskModel> GetTaskById(int taskId);
     }
 }

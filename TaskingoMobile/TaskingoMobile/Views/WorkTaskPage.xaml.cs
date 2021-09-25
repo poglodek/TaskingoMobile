@@ -4,12 +4,12 @@ using Xamarin.Forms;
 
 namespace TaskingoMobile.Views
 {
-    public partial class ItemDetailPage : ContentPage
+    public partial class WorkTaskPage : ContentPage
     {
-        public ItemDetailPage()
+        public WorkTaskPage()
         {
             InitializeComponent();
-            BindingContext = new ItemDetailViewModel();
+            BindingContext = new WorkTaskViewModel();
         }
     }
 }
