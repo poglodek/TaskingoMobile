@@ -3,27 +3,28 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using TaskingoMobile.Models;
+using TaskingoMobile.Models.WorkTask;
 using TaskingoMobile.Views;
 using Xamarin.Forms;
 
 namespace TaskingoMobile.ViewModels
 {
-    public class ItemsViewModel : BaseViewModel
+    public class WorkTasksViewModel : BaseViewModel
     {
-        private Item _selectedItem;
+        private WorkTaskModel _selectedItem;
 
-        public ObservableCollection<Item> Items { get; }
+        public ObservableCollection<WorkTaskModel> WorkTasks { get; }
         public Command LoadItemsCommand { get; }
         public Command AddItemCommand { get; }
-        public Command<Item> ItemTapped { get; }
+        public Command<WorkTaskModel> ItemTapped { get; }
 
-        public ItemsViewModel()
+        public WorkTasksViewModel()
         {
-            Title = "Browse";
-            Items = new ObservableCollection<Item>();
+            Title = "Tasks";
+            WorkTasks = new ObservableCollection<WorkTaskModel>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            ItemTapped = new Command<Item>(OnItemSelected);
+            ItemTapped = new Command<WorkTaskModel>(OnItemSelected);
 
             AddItemCommand = new Command(OnAddItem);
         }
@@ -34,11 +35,11 @@ namespace TaskingoMobile.ViewModels
 
             try
             {
-                Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
-                foreach (var item in items)
+                WorkTasks.Clear();
+                var tasks = await WorkTaskServices.GetMyTasks();
+                foreach (var task in tasks)
                 {
-                    Items.Add(item);
+                    WorkTasks.Add(task);
                 }
             }
             catch (Exception ex)
@@ -57,7 +58,7 @@ namespace TaskingoMobile.ViewModels
             SelectedItem = null;
         }
 
-        public Item SelectedItem
+        public WorkTaskModel SelectedItem
         {
             get => _selectedItem;
             set
@@ -72,7 +73,7 @@ namespace TaskingoMobile.ViewModels
             await Shell.Current.GoToAsync(nameof(NewItemPage));
         }
 
-        async void OnItemSelected(Item item)
+        async void OnItemSelected(WorkTaskModel item)
         {
             if (item == null)
                 return;

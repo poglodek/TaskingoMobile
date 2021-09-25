@@ -14,13 +14,13 @@ namespace TaskingoMobile.Views
 {
     public partial class ItemsPage : ContentPage
     {
-        ItemsViewModel _viewModel;
+        WorkTasksViewModel _viewModel;
 
         public ItemsPage()
         {
             InitializeComponent();
 
-            BindingContext = _viewModel = new ItemsViewModel();
+            BindingContext = _viewModel = new WorkTasksViewModel();
         }
 
         protected override void OnAppearing()

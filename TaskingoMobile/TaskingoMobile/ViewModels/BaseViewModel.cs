@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using TaskingoMobile.Models;
 using TaskingoMobile.Services;
 using TaskingoMobile.Services.IServices;
+using TaskingoMobile.Services.Services;
 using Xamarin.Forms;
 
 namespace TaskingoMobile.ViewModels
@@ -12,6 +13,7 @@ namespace TaskingoMobile.ViewModels
     public class BaseViewModel : INotifyPropertyChanged
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public IWorkTaskServices WorkTaskServices => DependencyService.Get<WorkTaskServices>();
 
         bool isBusy = false;
         public bool IsBusy
