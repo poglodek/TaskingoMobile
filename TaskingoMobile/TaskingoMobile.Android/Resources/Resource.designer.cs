@@ -25,6 +25,7 @@ namespace TaskingoMobile.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Plugin.LocalNotifications.Resource.Drawable.plugin_lc_smallicon = global::TaskingoMobile.Droid.Resource.Drawable.plugin_lc_smallicon;
 			global::Xamarin.CommunityToolkit.Resource.Animation.abc_fade_in = global::TaskingoMobile.Droid.Resource.Animation.abc_fade_in;
 			global::Xamarin.CommunityToolkit.Resource.Animation.abc_fade_out = global::TaskingoMobile.Droid.Resource.Animation.abc_fade_out;
 			global::Xamarin.CommunityToolkit.Resource.Animation.abc_grow_fade_in_from_bottom = global::TaskingoMobile.Droid.Resource.Animation.abc_grow_fade_in_from_bottom;
@@ -15250,16 +15251,19 @@ namespace TaskingoMobile.Droid
 			public const int notify_panel_notification_icon_bg = 2131165329;
 			
 			// aapt resource value: 0x7F070092
-			public const int test_custom_background = 2131165330;
+			public const int plugin_lc_smallicon = 2131165330;
 			
 			// aapt resource value: 0x7F070093
-			public const int tooltip_frame_dark = 2131165331;
+			public const int test_custom_background = 2131165331;
 			
 			// aapt resource value: 0x7F070094
-			public const int tooltip_frame_light = 2131165332;
+			public const int tooltip_frame_dark = 2131165332;
 			
 			// aapt resource value: 0x7F070095
-			public const int xamarin_logo = 2131165333;
+			public const int tooltip_frame_light = 2131165333;
+			
+			// aapt resource value: 0x7F070096
+			public const int xamarin_logo = 2131165334;
 			
 			static Drawable()
 			{

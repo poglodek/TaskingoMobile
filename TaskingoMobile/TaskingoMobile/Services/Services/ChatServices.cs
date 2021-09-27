@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR.Client;
 using Newtonsoft.Json;
+using Plugin.LocalNotifications;
 using TaskingoMobile.Api;
 using TaskingoMobile.Models.Chat;
 using TaskingoMobile.Models.User;
@@ -31,7 +32,14 @@ namespace TaskingoMobile.Services.Services
         public ChatServices()
         {
             Connection.On<MessageModel>("ReceiveMessage", (x) => ReceiveMessage?.Invoke(x));
+            ReceiveMessage += ChatServices_ReceiveMessage;
         }
+
+        private void ChatServices_ReceiveMessage(MessageModel obj)
+        {
+            CrossLocalNotifications.Current.Show("New Message!", obj.ToString(), 0, DateTime.Now.AddSeconds(5));
+        }
+
         public async Task Connect()
         {
             await Connection.StartAsync();
