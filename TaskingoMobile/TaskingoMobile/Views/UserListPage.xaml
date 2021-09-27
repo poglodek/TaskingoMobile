@@ -4,6 +4,7 @@
              xmlns:viewModels="clr-namespace:TaskingoMobile.ViewModels;assembly=TaskingoMobile"
              xmlns:workTask="clr-namespace:TaskingoMobile.Models.WorkTask;assembly=TaskingoMobile"
              xmlns:local="clr-namespace:TaskingoMobile.ViewModels"
+             xmlns:model="clr-namespace:TaskingoMobile.Models.User"  
              xmlns:user="clr-namespace:TaskingoMobile.Models.User;assembly=TaskingoMobile"
              Title="Users List"
              x:Class="TaskingoMobile.Views.UserListPage">
@@ -15,7 +16,7 @@
                             SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Padding="10" x:DataType="viewModels:UserListViewModel">
+                        <StackLayout Padding="10" x:DataType="model:UserModel">
                                 <Label Text="{Binding FullName}" 
                                    LineBreakMode="NoWrap" 
                                    Style="{DynamicResource ListItemTextStyle}" 
@@ -27,11 +28,12 @@
 
 
                             <StackLayout.GestureRecognizers>
-                                <TapGestureRecognizer 
+                                    <TapGestureRecognizer 
                                     NumberOfTapsRequired="1"
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type local:UserListViewModel}}, Path=ItemTapped}"		
-                                    CommandParameter="{Binding .}">
-                                </TapGestureRecognizer>
+                                    CommandParameter="{Binding .}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type local:UserListViewModel}}, Path=ItemTapped}"		>
+
+                                    </TapGestureRecognizer>
                             </StackLayout.GestureRecognizers>
                         </StackLayout>
                         </DataTemplate>

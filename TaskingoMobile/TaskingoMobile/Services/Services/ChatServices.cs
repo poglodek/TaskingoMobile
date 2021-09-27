@@ -36,7 +36,7 @@ namespace TaskingoMobile.Services.Services
         {
             await Connection.StartAsync();
             await Connection.SendAsync("GetMyId", MyId);
-            //var a = Connection.ConnectionId; TEST
+            var a = Connection.ConnectionId; 
         }
 
         public async Task SendMessage(string message, int recipient)

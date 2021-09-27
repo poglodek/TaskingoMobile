@@ -54,6 +54,13 @@ namespace TaskingoMobile.ViewModels
 
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        protected void OnPropertyChange(params string[] nameProperty)
+        {
+            foreach (var property in nameProperty)
+                if (property != null) PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+
+
+        }
         #endregion
     }
 }

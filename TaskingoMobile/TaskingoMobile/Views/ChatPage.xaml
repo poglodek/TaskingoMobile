@@ -9,11 +9,11 @@
             <RowDefinition  Height="auto"/> 
         </Grid.RowDefinitions>
         <ScrollView>
-            <Editor  Text="sadasdasd" IsReadOnly="True" />
+            <Editor  Text="{Binding Path=Messages}" IsReadOnly="True" />
         </ScrollView>
         <StackLayout Grid.Row="1" Margin="0,15,0,15">
-            <Entry Placeholder="Message" />
-            <Button  Text="Send Message!"/>
+            <Entry Placeholder="Message" Text="{Binding Path=Message}" />
+            <Button  Text="Send Message!" Command="{Binding Path=SendMessage}"/>
         </StackLayout>
     </Grid>
     

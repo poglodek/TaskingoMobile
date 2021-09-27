@@ -9,7 +9,7 @@ namespace TaskingoMobile.Views
         public ChatPage()
         {
             InitializeComponent();
-            BindingContext = new WorkTaskViewModel();
+            BindingContext = new ChatViewModel();
         }
     }
 }
