@@ -7,5 +7,6 @@ namespace TaskingoMobile.Services.IServices
     public interface IUserServices
     {
         Task<List<UserModel>> GetUsers();
+        Task<int> GetMyId();
     }
 }

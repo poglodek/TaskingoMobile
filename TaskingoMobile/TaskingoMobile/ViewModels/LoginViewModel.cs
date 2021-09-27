@@ -20,8 +20,13 @@ namespace TaskingoMobile.ViewModels
         private async void OnLoginClicked(object obj)
         {
             var response = await _loginServices.Login(Email, Password);
-            if(response)
+            if (response)
+            {
                 await Shell.Current.GoToAsync($"///{nameof(WorkTimePage)}");
+                ChatServices.MyId = await UserServices.GetMyId();
+                await _ChatServices.Connect();
+            }
+                
 
         }
     }

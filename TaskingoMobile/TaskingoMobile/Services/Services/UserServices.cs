@@ -17,5 +17,11 @@ namespace TaskingoMobile.Services.Services
             var userModels = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UserModel>>(jsonUsers);
             return userModels;
         }
+
+        public async Task<int> GetMyId()
+        {
+            var id = await BaseCall.MakeCall("User/GetMyId", System.Net.Http.HttpMethod.Get, null);
+            return int.Parse(id);
+        }
     }
 }
